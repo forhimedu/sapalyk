@@ -1,0 +1,91 @@
+#container {
+    background-color: rgb(213, 195, 195);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto';
+}
+
+.row {
+    display: flex;
+    padding: auto;
+    text-align: center;
+    padding: 1rem;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+
+#firstrow, #secondrow, #thirdrow {
+    display: flex;
+}
+
+.headingRow {
+    margin: 1rem 0;
+    font-size: large;
+}
+
+.card {
+    display: flex;
+    background-color: lightcyan;
+    margin: auto 2rem;
+    width: 20%;
+    height: 4rem;
+    padding: 1rem;  
+    justify-content: center;
+    align-items: center;
+}
+
+.selected {
+    background-color: pink !important;
+}
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: lightseagreen;
+}
+
+sup {
+    position: relative;
+    bottom: 0.3rem;
+}
+
+.rowOne {
+    background-color: lightgreen;
+}
+
+.rowTwo {
+    background-color: lightcyan;
+}
+
+.rowThree {
+    background-color: lightsalmon;
+}
+
+#submitButton {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    height: 2rem;
+    align-items: center;
+    margin: auto;
+}
+
+#correctAnswers {
+    display: flex;
+    background-color: azure;
+    max-width: 100%;
+    justify-items: center;
+}
+
+#correctAnswers span {
+    width: 30%;
+    margin: 2rem;
+    text-align: center;
+}
+
+sub {
+    position: relative;
+    top: 0.2rem;
+}
