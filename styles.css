@@ -94,6 +94,10 @@ sup {
     background-color: rgb(235, 196, 180);
 }
 
+.rowThree > span {
+    font-family: "Sriracha", Roboto, sans-serif;
+}
+
 /* #submit#submit#submitButton {
     width: 30%;
     display: flex;
