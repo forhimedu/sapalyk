@@ -34,6 +34,7 @@ span {
 }
 
 
+
 #firstrow, #secondrow, #thirdrow {
     display: flex;
     flex-direction: row;
@@ -93,7 +94,6 @@ sup {
 .rowThree {
     background-color: rgb(235, 196, 180);
 }
-
 .rowThree > span {
     font-family: "Sriracha", Roboto, sans-serif;
 }
