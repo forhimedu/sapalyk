@@ -2,6 +2,7 @@ const firstrow = document.getElementById('firstrow');
 const secondrow = document.getElementById('secondrow');
 const thirdrow = document.getElementById('thirdrow');
 const correctAns = document.getElementById('correctAnswers');
+const submitButtonWrapper = document.getElementById('submitButtonWrapper');
 let returnValue = false;
 
 
@@ -55,9 +56,7 @@ function checkArray(value1, value2, value3, arrayList) {
 
 
 /**
- * ClassNameRemoved will be the one which will contain classes that should be removed
- * 
- * 
+
  */
 function removeClassName(classNameRemoved, classNameType ) {
     const classRemove = document.querySelectorAll(`.${classNameType}`);
@@ -88,6 +87,7 @@ function shuffleArray(array) {
 }
 
 function App() {
+    submitButtonWrapper.innerHTML = "";
     const shuffled = allData.sort(() => 0.5 - Math.random());
     let data = shuffled.slice(0, 5);
     /** 
@@ -96,8 +96,7 @@ function App() {
     let row1SelectedElement = null;
     let row2SelectedElement = null;
     let row3SelectedElement = null;
-    const submitButton = document.getElementById('submitButton');
-    const popupElements = document.getElementById('popup');
+
 
     data.forEach(element => {
         // first row related 
@@ -137,22 +136,35 @@ function App() {
         })
         thirdrow.appendChild(spanElement3);
     })
-
+    let submitButton = document.createElement('button');
+    submitButton.id = 'submitButton';
+    submitButton.innerHTML = 'Жауапты қабылда'
+    submitButtonWrapper.appendChild(submitButton);
     submitButton.addEventListener('click', () => {
+        const removeAllElems = document.querySelectorAll('.selected');
         if (checkArray(row1SelectedElement, row2SelectedElement, row3SelectedElement, data)) {
-            const removeAllElems = document.querySelectorAll('.selected');
+            // const removeAllElems = document.querySelectorAll('.selected');
+            // console.log(removeAllElems);
             removeAllElems.forEach(elem => {
                 elem.remove();
             })
-        let newDiv1 = document.createElement('span')
-        let newDiv2 = document.createElement('span')
-        let newDiv3 = document.createElement('span')
-        newDiv1.innerHTML = row1SelectedElement;
-        correctAns.appendChild(newDiv1);
-        newDiv2.innerHTML = row2SelectedElement;
-        correctAns.append(newDiv2);
-        newDiv3.innerHTML = row3SelectedElement;
-        correctAns.append(newDiv3);
+        let n = correctAns.childElementCount;
+        if (n == 5) {
+            correctAns.innerHTML = "";
+        } 
+        let newDiv = document.createElement('div');
+        newDiv.classList.add('answers');
+        let newSpan1 = document.createElement('span')
+        let newSpan2 = document.createElement('span')
+        let newSpan3 = document.createElement('span')
+        newSpan1.innerHTML = row1SelectedElement;
+        newDiv.appendChild(newSpan1);
+        newSpan2.innerHTML = row2SelectedElement;
+        newDiv.append(newSpan2);
+        newSpan3.innerHTML = row3SelectedElement;
+        newDiv.append(newSpan3);
+        correctAns.appendChild(newDiv);
+ 
         } else {
             const removeAllElems = document.querySelectorAll('.selected');
             removeAllElems.forEach(elem => {
